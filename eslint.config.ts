@@ -21,7 +21,6 @@ export default defineConfigWithVueTs(
   skipFormatting,
   {
     rules: {
-      'prefer-const': 'error',
       'vue/multi-word-component-names': 'off', // 关闭该规则
     },
   },
