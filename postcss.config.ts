@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
     // ...
-    'postcss-px-to-viewport': {
+    'postcss-px-to-viewport-8-plugin': {
       // options
       unitToConvert: 'px',
       // 设计稿的宽度
