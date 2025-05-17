@@ -10,7 +10,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TextImage: typeof import('./src/components/TextImage.vue')['default']
+    SingleImage: typeof import('./src/components/cards/SingleImage.vue')['default']
+    SingleImageToolBar: typeof import('./src/components/cards/SingleImageToolBar.vue')['default']
+    TextImage: typeof import('./src/components/cards/TextImage.vue')['default']
     VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanConfigProvider: typeof import('vant/es')['ConfigProvider']

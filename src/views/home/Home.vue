@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import TextImage from '@/components/TextImage.vue'
+import TextImage from '@/components/cards/TextImage.vue'
+import SingleImage from '@/components/cards/SingleImage.vue'
 const list = ref([])
 const loading = ref(false)
 const finished = ref(false)
@@ -40,6 +41,7 @@ const onRefresh = () => {
   </div>
   <div class="middle-content">
     <text-image></text-image>
+    <single-image></single-image>
     <!-- <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list
         v-model:loading="loading"
