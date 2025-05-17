@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import TextImage from '@/components/TextImage.vue'
 const list = ref([])
 const loading = ref(false)
 const finished = ref(false)
 const refreshing = ref(false)
-// const imageList = ref([
-//   'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
-//   'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
-// ])
+
 const onLoad = () => {
   setTimeout(() => {
     if (refreshing.value) {
@@ -41,7 +39,8 @@ const onRefresh = () => {
     <van-nav-bar title="标题" fixed safe-area-inset-top />
   </div>
   <div class="middle-content">
-    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+    <text-image></text-image>
+    <!-- <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list
         v-model:loading="loading"
         :finished="finished"
@@ -50,7 +49,7 @@ const onRefresh = () => {
       >
         <van-cell v-for="item in list" :key="item" :title="item" />
       </van-list>
-    </van-pull-refresh>
+    </van-pull-refresh> -->
   </div>
 </template>
 
