@@ -1,13 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const emits = defineEmits(['onClickNewsItem'])
+
+const clickNewsItem = () => {
+  console.log('clickNewsItem')
+  emits('onClickNewsItem', 'item')
+}
+</script>
 
 <template>
-  <div class="container">
+  <div class="container" @click="clickNewsItem">
     <div class="row">
       <div class="column">
         <div class="title">追光｜乘风破浪的她 飒气登场驶向梦想</div>
+        <div class="blank"></div>
         <div class="publish-time">2025-10-20</div>
       </div>
-      <img class="image" src="../assets/logo.svg" alt="" />
+      <img class="image" src="@/assets/logo.svg" alt="" />
     </div>
   </div>
 </template>
@@ -21,6 +29,8 @@
   background-color: red;
 }
 .column {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-color: aquamarine;
   padding-right: 8px;
@@ -34,9 +44,12 @@
   -webkit-box-orient: vertical;
   max-lines: 3;
 }
-
+.blank {
+  flex: 1;
+}
 .publish-time {
   margin-top: 16px;
+  background-color: purple;
 }
 .image {
   width: 120px;

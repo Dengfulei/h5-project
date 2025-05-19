@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import SingleImageToolBar from './SingleImageToolBar.vue'
+const emits = defineEmits(['onClickNewsItem'])
+
+const clickNewsItem = () => {
+  emits('onClickNewsItem', 'item')
+}
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" @click="clickNewsItem">
     <div class="column">
       <img
         src="https://static-o.oss-cn-shenzhen.aliyuncs.com/images/tpbj/ImitatePhotoStyle1.jpg"

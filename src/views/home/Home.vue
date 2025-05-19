@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import TextImage from '@/components/cards/TextImage.vue'
 import SingleImage from '@/components/cards/SingleImage.vue'
+import { showSuccessToast, showToast } from 'vant'
 const list = ref([])
 const loading = ref(false)
 const finished = ref(false)
@@ -33,6 +34,11 @@ const onRefresh = () => {
   loading.value = true
   onLoad()
 }
+
+const onClickItem = (item: string) => {
+  console.log('clickNewsItem11111:', item)
+  showSuccessToast('成功文案')
+}
 </script>
 
 <template>
@@ -40,8 +46,12 @@ const onRefresh = () => {
     <van-nav-bar title="标题" fixed safe-area-inset-top />
   </div>
   <div class="middle-content">
-    <text-image></text-image>
-    <single-image></single-image>
+    <text-image @on-click-news-item="onClickItem"></text-image>
+    <single-image @on-click-news-item="onClickItem"></single-image>
+    <text-image @on-click-news-item="onClickItem"></text-image>
+    <single-image @on-click-news-item="onClickItem"></single-image>
+    <text-image @on-click-news-item="onClickItem"></text-image>
+    <single-image @on-click-news-item="onClickItem"></single-image>
     <!-- <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list
         v-model:loading="loading"
