@@ -2,11 +2,12 @@
 import { ref } from 'vue'
 import TextImage from '@/components/cards/TextImage.vue'
 import SingleImage from '@/components/cards/SingleImage.vue'
-import { showSuccessToast, showToast } from 'vant'
+import { showToast } from 'vant'
 const list = ref([])
 const loading = ref(false)
 const finished = ref(false)
 const refreshing = ref(false)
+const showTop = ref(false)
 
 const onLoad = () => {
   setTimeout(() => {
@@ -37,7 +38,7 @@ const onRefresh = () => {
 
 const onClickItem = (item: string) => {
   console.log('clickNewsItem11111:', item)
-  showSuccessToast('成功文案')
+  showToast('提示内容')
 }
 </script>
 
@@ -52,16 +53,7 @@ const onClickItem = (item: string) => {
     <single-image @on-click-news-item="onClickItem"></single-image>
     <text-image @on-click-news-item="onClickItem"></text-image>
     <single-image @on-click-news-item="onClickItem"></single-image>
-    <!-- <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-      <van-list
-        v-model:loading="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
-      >
-        <van-cell v-for="item in list" :key="item" :title="item" />
-      </van-list>
-    </van-pull-refresh> -->
+
   </div>
 </template>
 

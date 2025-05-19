@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const props = defineProps(['title'])
+const props = defineProps(['title', 'id'])
 const emits = defineEmits(['onClickMyItem'])
-const onClickItem = ()=>{
-  emits('onClickMyItem','111')
+const onClickItem = () => {
+  emits('onClickMyItem', props.id)
 }
 </script>
 

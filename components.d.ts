@@ -8,7 +8,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    MyHeadder: typeof import('./src/components/cards/my/MyHeadder.vue')['default']
     MyItem: typeof import('./src/components/cards/my/MyItem.vue')['default']
+    MyMiddle: typeof import('./src/components/cards/my/MyMiddle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SingleImage: typeof import('./src/components/cards/SingleImage.vue')['default']
@@ -19,6 +21,7 @@ declare module 'vue' {
     VanConfigProvider: typeof import('vant/es')['ConfigProvider']
     VanList: typeof import('vant/es')['List']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanPopup: typeof import('vant/es')['Popup']
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
