@@ -2,10 +2,12 @@
 import MyHeadder from '@/components/cards/my/MyHeadder.vue'
 import MyItem from '@/components/cards/my/MyItem.vue'
 import MyMiddle from '@/components/cards/my/MyMiddle.vue'
+import { showToast } from 'vant'
 import { ref } from 'vue'
 
 const onClickItem = (text: string) => {
   console.log('text>>>:', text)
+  showToast('dasds')
 }
 const list = ref([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
 </script>

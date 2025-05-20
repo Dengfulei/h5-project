@@ -38,7 +38,7 @@ const onRefresh = () => {
 
 const onClickItem = (item: string) => {
   console.log('clickNewsItem11111:', item)
-  showToast('提示内容')
+  showToast('dddsds')
 }
 </script>
 
@@ -53,7 +53,6 @@ const onClickItem = (item: string) => {
     <single-image @on-click-news-item="onClickItem"></single-image>
     <text-image @on-click-news-item="onClickItem"></text-image>
     <single-image @on-click-news-item="onClickItem"></single-image>
-
   </div>
 </template>
 
