@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import TextImage from '@/components/cards/TextImage.vue'
 import SingleImage from '@/components/cards/SingleImage.vue'
 import { showToast } from 'vant'
+import { useScroll } from '@vueuse/core'
+
+const { y } = useScroll(window)
+console.log('scroll>>>>>> ', y)
 const list = ref([])
 const loading = ref(false)
 const finished = ref(false)
@@ -40,19 +44,34 @@ const onClickItem = (item: string) => {
   console.log('clickNewsItem11111:', item)
   showToast('dddsds')
 }
+
+const handleScroll = () => {
+  console.log('handleScroll')
+  alert('handleScroll')
+}
 </script>
 
 <template>
   <div class="top-nav">
-    <van-nav-bar title="标题" fixed safe-area-inset-top />
+    <van-nav-bar :title="'标题' + y" fixed safe-area-inset-top />
   </div>
   <div class="middle-content">
-    <text-image @on-click-news-item="onClickItem"></text-image>
+    <!-- <text-image @on-click-news-item="onClickItem"></text-image>
     <single-image @on-click-news-item="onClickItem"></single-image>
     <text-image @on-click-news-item="onClickItem"></text-image>
     <single-image @on-click-news-item="onClickItem"></single-image>
     <text-image @on-click-news-item="onClickItem"></text-image>
-    <single-image @on-click-news-item="onClickItem"></single-image>
+    <single-image @on-click-news-item="onClickItem"></single-image> -->
+    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+      <van-list
+        v-model:loading="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
+        <van-cell v-for="item in list" :key="item" :title="item" />
+      </van-list>
+    </van-pull-refresh>
   </div>
 </template>
 
