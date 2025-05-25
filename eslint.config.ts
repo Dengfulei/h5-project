@@ -23,6 +23,7 @@ export default defineConfigWithVueTs(
     rules: {
       'vue/multi-word-component-names': 'off', // 关闭该规则
       '@typescript-eslint/no-explicit-any': 'off', // 禁止使用 any 类型
+      // '@typescript-eslint/no-require-imports': 'off',
     },
   },
 )
