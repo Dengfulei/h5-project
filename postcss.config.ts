@@ -5,7 +5,8 @@ module.exports = {
       // options
       unitToConvert: 'px',
       // 设计稿的宽度
-      viewportWidth: 375,
+      viewportWidth: 1970,
+      unitPrecision: 2,
     },
   },
 }

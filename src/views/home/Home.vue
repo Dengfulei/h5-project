@@ -49,6 +49,10 @@ const handleScroll = () => {
   console.log('handleScroll')
   alert('handleScroll')
 }
+
+const testclisck = (a: any) => {
+  console.log('aaaaaa>>> ', a.index)
+}
 </script>
 
 <template>
@@ -56,6 +60,7 @@ const handleScroll = () => {
     <van-nav-bar :title="'标题' + y" fixed safe-area-inset-top />
   </div>
   <div class="middle-content">
+    <div class="testclisck" @click="testclisck">testclisck</div>
     <!-- <text-image @on-click-news-item="onClickItem"></text-image>
     <single-image @on-click-news-item="onClickItem"></single-image>
     <text-image @on-click-news-item="onClickItem"></text-image>
@@ -79,5 +84,9 @@ const handleScroll = () => {
 .middle-content {
   margin-top: var(--van-nav-bar-height);
   margin-bottom: var(--van-nav-bar-height);
+}
+.testclisck {
+  width: 100px;
+  background-color: red;
 }
 </style>
