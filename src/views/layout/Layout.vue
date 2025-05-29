@@ -4,8 +4,8 @@ const active = ref(0)
 </script>
 
 <template>
-  <router-view v-slot="{ Component }">
-    <keep-alive>
+  <router-view v-slot="{Component }">
+    <keep-alive :na>
       <component :is="Component"></component>
     </keep-alive>
   </router-view>
