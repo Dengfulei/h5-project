@@ -4,8 +4,8 @@ const active = ref(0)
 </script>
 
 <template>
-  <router-view v-slot="{Component }">
-    <keep-alive :na>
+  <router-view v-slot="{ Component }">
+    <keep-alive>
       <component :is="Component"></component>
     </keep-alive>
   </router-view>
@@ -17,8 +17,4 @@ const active = ref(0)
   </div>
 </template>
 
-<style scoped>
-.router-view {
-  height: calc(100% - 100px);
-}
-</style>
+<style scoped></style>

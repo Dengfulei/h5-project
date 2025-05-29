@@ -35,7 +35,7 @@ const list = ref([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
 
 <style scoped>
 .my-box {
-  margin-bottom: var(--van-nav-bar-height);
+  margin-bottom: var(--van-tabbar-height);
   img {
     width: 24px;
   }

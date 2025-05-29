@@ -105,7 +105,7 @@ const jumpToDetail = () => {
 <style scoped>
 .middle-content {
   margin-top: var(--van-nav-bar-height);
-  margin-bottom: var(--van-nav-bar-height);
+  margin-bottom: var(--van-tabbar-height);
 }
 .testclisck {
   width: 100px;
