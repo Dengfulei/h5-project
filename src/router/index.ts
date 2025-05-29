@@ -7,26 +7,28 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      redirect: 'home',
-    },
-    {
       name: 'index',
       path: '/',
+      redirect:'/home',
       component: Index,
       children: [
         {
           name: 'home',
-          path: 'home',
+          path: '/home',
           component: Home,
         },
         {
           name: 'my',
-          path: 'my',
+          path: '/my',
           component: My,
         },
       ],
     },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: import('@/views/detail/index.vue')
+    }
   ],
 })
 

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, useTemplateRef } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
 import TextImage from '@/components/cards/TextImage.vue'
 import SingleImage from '@/components/cards/SingleImage.vue'
 import { showToast } from 'vant'
 import { useScroll } from '@vueuse/core'
+import router from '@/router'
 
 const { y } = useScroll(window)
 console.log('scroll>>>>>> ', y)
@@ -13,7 +14,42 @@ const finished = ref(false)
 const refreshing = ref(false)
 const showTop = ref(false)
 
+onActivated(() => {
+  // 调用时机为首次挂载
+  // 以及每次从缓存中被重新插入时
+  console.log('onActivated')
+})
+
+onDeactivated(() => {
+  // 在从 DOM 上移除、进入缓存
+  // 以及组件卸载时调用
+  console.log('onDeactivated')
+})
+onMounted(() => {
+  console.log('onMounted')
+  loadData()
+})
+
+onUnmounted(() => {
+  console.log('onUnmounted')
+})
+
 const onLoad = () => {
+  console.log('onLoad>>> ')
+  loadData()
+}
+
+const onRefresh = () => {
+  console.log('onRefresh>>> ')
+  // 清空列表数据
+  finished.value = false
+  // 重新加载数据
+  // 将 loading 设置为 true，表示处于加载状态
+  loading.value = true
+  loadData()
+}
+
+const loadData = () => {
   setTimeout(() => {
     if (refreshing.value) {
       list.value = []
@@ -31,27 +67,12 @@ const onLoad = () => {
   }, 1000)
 }
 
-const onRefresh = () => {
-  // 清空列表数据
-  finished.value = false
-  // 重新加载数据
-  // 将 loading 设置为 true，表示处于加载状态
-  loading.value = true
-  onLoad()
-}
-
-const onClickItem = (item: string) => {
-  console.log('clickNewsItem11111:', item)
-  showToast('dddsds')
-}
-
-const handleScroll = () => {
-  console.log('handleScroll')
-  alert('handleScroll')
-}
-
 const testclisck = (a: any) => {
   console.log('aaaaaa>>> ', a.index)
+}
+
+const jumpToDetail = () => {
+  router.push({ path: '/detail' })
 }
 </script>
 
@@ -73,8 +94,9 @@ const testclisck = (a: any) => {
         :finished="finished"
         finished-text="没有更多了"
         @load="onLoad"
+        :immediate-check="false"
       >
-        <van-cell v-for="item in list" :key="item" :title="item" />
+        <van-cell v-for="item in list" :key="item" :title="item" @click="jumpToDetail" />
       </van-list>
     </van-pull-refresh>
   </div>

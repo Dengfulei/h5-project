@@ -4,7 +4,11 @@ const active = ref(0)
 </script>
 
 <template>
-  <router-view></router-view>
+  <router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component"></component>
+    </keep-alive>
+  </router-view>
   <div class="bottom-tabbar">
     <van-tabbar v-model="active" route fixed safe-area-inset-bottom>
       <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
